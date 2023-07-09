@@ -1,6 +1,7 @@
 package nextstep.fp;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Lambda {
     public static void printAllOld(List<Integer> numbers) {
@@ -21,8 +22,8 @@ public class Lambda {
         new Thread(() -> System.out.println("Hello from thread")).start();
     }
 
-    public static int sumAll(List<Integer> numbers, Conditional c) {
-        return numbers.stream().filter(c::test).mapToInt(value -> value).sum();
+    public static int sumAll(List<Integer> numbers, Predicate<Integer> c) {
+        return numbers.stream().filter(c).mapToInt(value -> value).sum();
     }
 
 }
